@@ -37,7 +37,7 @@ const Home = ()=>{
     return(
         <main>
 
-            <h2> Create Employee</h2>
+            <h1> Create Employee</h1>
 
             <div className="home-form-container">
                 <Formik initialValues={{ firstName: '', lastName: '',birth:"", startDate:"",street:"",city:"",state:"",zipCode:"",dept:""}}

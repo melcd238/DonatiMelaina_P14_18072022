@@ -15,7 +15,7 @@ const Header =()=>{
                 <img src={logo} alt="wealth health logo"></img>
             </div>
             <div className='logo-hrnet'>
-                 <h1>HRnet</h1>
+                 <span>HRnet</span>
             </div>
             <nav className='header-link'>
                 <NavLink to='/' style={({ isActive }) => isActive ? activeStyle : undefined}>Home</NavLink>

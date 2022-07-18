@@ -3,9 +3,9 @@
 
 const EmployeesList = ()=>{
     return(
-        <>
-        List of employees
-        </>
+        <main className="employees-container">
+           <h1>Current Employees</h1>
+        </main>
     )
 }
 
