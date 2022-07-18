@@ -89,8 +89,8 @@ const Home = ()=>{
                             </div>
 
                             <div className='form-control'>
-                               <label htmlFor='state'>State</label>
-                               <Field name="state" component="select" className="select-input">
+                               <label htmlFor='state' style={{ display: "block" }}>State</label>
+                               <Field name="state" as="select" className="select-input">
                                    {statesOptions.map((opt)=>(
                                        <option value={opt.value}>{opt.label}</option>
                                    ))}

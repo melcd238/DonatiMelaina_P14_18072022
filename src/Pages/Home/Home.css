@@ -21,7 +21,6 @@ main{
     letter-spacing: 0.1rem;
 }
 .form-control input{
-    width: 80%;
     border: 2px solid rgba(0, 0, 0, 0);
     outline: none;
     background-color: rgba(230, 230, 230, 0.6);
@@ -31,7 +30,7 @@ main{
     border-radius: 10px;
 }
 .select-input{
-    width: 80%;
+    width:100%;
     border: 2px solid rgba(0, 0, 0, 0);
     outline: none;
     background-color: rgba(230, 230, 230, 0.6);
