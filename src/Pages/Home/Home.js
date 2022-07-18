@@ -1,15 +1,47 @@
 import './Home.css';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
+import { statesOptions } from '../../data/states';
+import { servicesOptions } from '../../data/services';
 
 
 const Home = ()=>{
+
+
+    const validationSchema = Yup.object().shape({
+        firstName: Yup.string()
+            .min(3, "To short")
+            .max(30, "To long!")
+            .required("First name is required"),
+        lastName: Yup.string()
+            .min(3, "To short")
+            .max(30, "To long!")
+            .required("Last name is required"),
+        birth: Yup.date()
+            .required("This field is required"),
+        startDate: Yup.date()
+            .required("This field is required"),
+        street: Yup.string()
+            .required("This field is required"),
+        city: Yup.string()
+            .required("This field is required"),
+        state: Yup.string()
+            .required("This field is required"),
+        zipCode: Yup.number()
+            .required("This field is required"),
+        dept: Yup.string()
+            .required("This field is required"),               
+          
+    });
+
     return(
         <main>
 
             <h2> Create Employee</h2>
 
             <div className="home-form-container">
-                <Formik initialValues={{ firstName: '', lastName: '',birt:"", startDate:"",street:"",city:"",state:"",zipCode:"",dept:""}}
+                <Formik initialValues={{ firstName: '', lastName: '',birth:"", startDate:"",street:"",city:"",state:"",zipCode:"",dept:""}}
+                         validationSchema={validationSchema}
                          onSubmit={(values, { setSubmitting }) => {
                               console.log(values)
                               setSubmitting(false);
@@ -58,7 +90,11 @@ const Home = ()=>{
 
                             <div className='form-control'>
                                <label htmlFor='state'>State</label>
-                               <Field name="state" type="text" component="select" className="select-input"/>
+                               <Field name="state" component="select" className="select-input">
+                                   {statesOptions.map((opt)=>(
+                                       <option value={opt.value}>{opt.label}</option>
+                                   ))}
+                               </Field>
                                <ErrorMessage name="state" component="div" style={{color: "red"}}/>
                             </div>
 
@@ -72,7 +108,11 @@ const Home = ()=>{
 
                         <div className='form-control'>
                             <label htmlFor='dept'>Department</label>
-                            <Field name="dept" type="text" component="select" className="select-input"/>
+                            <Field name="dept"  component="select" className="select-input">
+                                {servicesOptions.map((opt)=>(
+                                    <option value={opt.value}>{opt.label}</option>
+                                ))}
+                            </Field>    
                             <ErrorMessage name="dept" component="div" style={{color: "red"}}/>
                         </div>
 
