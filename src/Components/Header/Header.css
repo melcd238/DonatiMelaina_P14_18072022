@@ -1,0 +1,30 @@
+header{
+    width:100%;
+    height:80px;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    background-color: #5A6F07;
+   
+}
+.logo-wealth{
+    width: 60px;
+    height:60px;
+    display:flex;
+    align-items:center;
+}
+.logo-wealth img{
+    width:100%;
+}
+.logo-hrnet h1{
+    color:white;
+}
+.header-link{
+    display: flex;
+    gap:20px;
+}
+.header-link a{
+    color:white;
+    text-decoration:none;
+    font-size:18px;
+}
