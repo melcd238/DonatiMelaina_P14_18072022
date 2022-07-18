@@ -1,0 +1,1 @@
+export const services = ["Sales", "Marketing", "Engineering","Human Resources","Legal"]
