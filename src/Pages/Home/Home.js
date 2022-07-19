@@ -92,7 +92,7 @@ const Home = ()=>{
                                <label htmlFor='state' style={{ display: "block" }}>State</label>
                                <Field name="state" as="select" className="select-input">
                                    {statesOptions.map((opt)=>(
-                                       <option value={opt.value}>{opt.label}</option>
+                                       <option value={opt.value} key={opt.label}>{opt.label}</option>
                                    ))}
                                </Field>
                                <ErrorMessage name="state" component="div" style={{color: "red"}}/>
@@ -110,7 +110,7 @@ const Home = ()=>{
                             <label htmlFor='dept'>Department</label>
                             <Field name="dept"  component="select" className="select-input">
                                 {servicesOptions.map((opt)=>(
-                                    <option value={opt.value}>{opt.label}</option>
+                                    <option value={opt.value} key={opt.label}>{opt.label}</option>
                                 ))}
                             </Field>    
                             <ErrorMessage name="dept" component="div" style={{color: "red"}}/>
