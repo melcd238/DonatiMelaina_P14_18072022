@@ -1,7 +1,7 @@
 export let DEFAULT_EMPLOYEES_LIST = [
     {
         firstName:"Jolie", 
-        lastName:" Nguyen",
+        lastName:"Nguyen",
         birth:"1975-04-20",
         startDate:"1999-07-22",
         street:"875-1270 Nulla St.",

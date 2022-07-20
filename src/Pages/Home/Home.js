@@ -3,10 +3,13 @@ import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { statesOptions } from '../../data/states';
 import { servicesOptions } from '../../data/services';
+import { addEmployee } from '../../Store/Reducers/Employees';
+import { useDispatch } from 'react-redux';
 
 
 const Home = ()=>{
-
+  
+    const dispatch = useDispatch();
 
     const validationSchema = Yup.object().shape({
         firstName: Yup.string()
@@ -42,9 +45,21 @@ const Home = ()=>{
             <div className="home-form-container">
                 <Formik initialValues={{ firstName: '', lastName: '',birth:"", startDate:"",street:"",city:"",state:"",zipCode:"",dept:""}}
                          validationSchema={validationSchema}
-                         onSubmit={(values, { setSubmitting }) => {
+                         onSubmit={(values, { setSubmitting, resetForm }) => {
                               console.log(values)
+                              dispatch(addEmployee(values))
                               setSubmitting(false);
+                              resetForm({
+                                  firstName:'',
+                                  lastName:'',
+                                  birth:'',
+                                  startDate:'',
+                                  street:'',
+                                  city:'',
+                                  state:'',
+                                  zipCode:'',
+                                  dept:'',
+                              })
                           
                           }}
                 
