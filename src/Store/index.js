@@ -4,18 +4,18 @@ import storage from 'redux-persist/lib/storage';
 import { persistReducer, persistStore } from "redux-persist";
 import thunk from "redux-thunk";
 
-const persistConfig ={
+/*const persistConfig ={
     key:'root',
     storage,
   }
 
-  const persistedReducer = persistReducer(persistConfig, EmployeesReducer)
+  const persistedReducer = persistReducer(persistConfig, EmployeesReducer)*/
 
 export const store= configureStore({
     reducer:{
-        employees : persistedReducer,
+        employees : EmployeesReducer,
         middleware: [thunk]
     }
 })
 
-export const persistor = persistStore(store)
+//export const persistor = persistStore(store)

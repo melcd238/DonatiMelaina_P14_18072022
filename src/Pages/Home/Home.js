@@ -45,20 +45,20 @@ const Home = ()=>{
             <div className="home-form-container">
                 <Formik initialValues={{ firstName: '', lastName: '',birth:"", startDate:"",street:"",city:"",state:"",zipCode:"",dept:""}}
                          validationSchema={validationSchema}
-                         onSubmit={(values, { setSubmitting, resetForm }) => {
+                         onSubmit={(values, { setSubmitting ,resetForm }) => {
                               console.log(values)
                               dispatch(addEmployee(values))
-                              setSubmitting(false);
+                              setSubmitting(false)
                               resetForm({
-                                  firstName:'',
-                                  lastName:'',
-                                  birth:'',
-                                  startDate:'',
-                                  street:'',
-                                  city:'',
-                                  state:'',
-                                  zipCode:'',
-                                  dept:'',
+                                  firstName:"",
+                                  lastName:"",
+                                  birth:"",
+                                  startDate:"",
+                                  street:"",
+                                  city:"",
+                                  state:"",
+                                  zipCode:"",
+                                  dept:"",
                               })
                           
                           }}
