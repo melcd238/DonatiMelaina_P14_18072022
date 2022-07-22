@@ -43,7 +43,7 @@ const Home = ()=>{
             <h1> Create Employee</h1>
 
             <div className="home-form-container">
-                <Formik initialValues={{ firstName: '', lastName: '',birth:"", startDate:"",street:"",city:"",state:"",zipCode:"",dept:""}}
+                <Formik initialValues={{ firstName: '', lastName: '',birth:"", startDate:"",street:"",city:"",state:"Alabama",zipCode:"",dept:"sales"}}
                          validationSchema={validationSchema}
                          onSubmit={(values, { setSubmitting ,resetForm }) => {
                               console.log(values)
@@ -106,8 +106,8 @@ const Home = ()=>{
                             <div className='form-control'>
                                <label htmlFor='state' style={{ display: "block" }}>State</label>
                                <Field name="state" as="select" className="select-input">
-                                   {statesOptions.map((opt)=>(
-                                       <option value={opt.value} key={opt.label}>{opt.label}</option>
+                                   {statesOptions.map((opt, index)=>(
+                                       <option value={opt.value} key={index}>{opt.label}</option>
                                    ))}
                                </Field>
                                <ErrorMessage name="state" component="div" style={{color: "red"}}/>

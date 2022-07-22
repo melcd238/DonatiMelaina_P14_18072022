@@ -8,6 +8,7 @@ export const employeesSlice = createSlice({
     initialState: DEFAULT_EMPLOYEES_LIST,
     reducers:{
         addEmployee: (state, action)=>{
+            console.log(state, action)
                return [...state, action.payload]
         }
     }
