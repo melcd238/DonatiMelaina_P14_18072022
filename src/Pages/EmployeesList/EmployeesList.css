@@ -76,6 +76,7 @@ section{
     table td {
     display: block;
     text-align: right;
+    
     }
     
     table td:before {
@@ -84,7 +85,7 @@ section{
     font-weight: bold;
     background-color: #5A6F07;
     color:white;
-    padding:2---------------
-    !!px;
+    padding:2px;
+    margin-right:80px;
     }
     }
