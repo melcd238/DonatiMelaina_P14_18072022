@@ -129,7 +129,7 @@ export let DEFAULT_EMPLOYEES_LIST = [
         city:"Hartford",
         state:"Connecticut",
         zipCode:"797884",
-        dept:"egal"
+        dept:"legal"
     },
     {
         firstName:"Wayne", 
@@ -140,7 +140,7 @@ export let DEFAULT_EMPLOYEES_LIST = [
         city:"Phoenix",
         state:"Arizona",
         zipCode:"903258",
-        dept:"egal"
+        dept:"legal"
     },
     {
         firstName:"Petra", 
@@ -151,6 +151,83 @@ export let DEFAULT_EMPLOYEES_LIST = [
         city:"Columbus",
         state:"Ohio",
         zipCode:"82330-26288",
+        dept:"human Resources"
+    },
+    {
+        firstName:"Leo", 
+        lastName:"Works",
+        birth:"1975-04-21",
+        startDate:"2004-05-30",
+        street:"442-7689 str Ave",
+        city:"Columbus",
+        state:"Ohio",
+        zipCode:"82330-26288",
+        dept:"human Resources"
+    },
+    {
+        firstName:"Joey", 
+        lastName:"Clark",
+        birth:"1975-08-20",
+        startDate:"2004-05-30",
+        street:"15-267 Orci Rd.",
+        city:"Hartford",
+        state:"Connecticut",
+        zipCode:"797884",
+        dept:"legal"
+    },
+    {
+        firstName:"Kevina", 
+        lastName:"Perkineuch",
+        birth:"1979-09-28",
+        startDate:"2003-09-09",
+        street:"138-9234 InView Rd.",
+        city:"Little Rock",
+        state:"Arkansas",
+        zipCode:"58536-272",
+        dept:"marketing"
+    },
+    {
+        firstName:"Cloe", 
+        lastName:"Brewerers",
+        birth:"1978-04-20",
+        startDate:"1999-07-23",
+        street:"261-5799 Mauris. Av",
+        city:"Cheyenne",
+        state:"Wyoming",
+        zipCode:"553482",
+        dept:"engineering"
+    },
+    {
+        firstName:"Reesa", 
+        lastName:"Val",
+        birth:"1976-04-20",
+        startDate:"1999-07-24",
+        street:"703-242 Erat St.",
+        city:"Nashville",
+        state:"Tennessee",
+        zipCode:"553482",
+        dept:"marketing"
+    },
+    {
+        firstName:"Imann", 
+        lastName:"Hullington",
+        birth:"1975-04-28",
+        startDate:"1999-09-22",
+        street:"945-9660 Et, Ave",
+        city:"Miami",
+        state:"Florida",
+        zipCode:"73-652",
+        dept:"engineering"
+    },
+    {
+        firstName:"Paul", 
+        lastName:"Bookerachyer",
+        birth:"1979-09-29",
+        startDate:"2004-05-30",
+        street:"538-5298 Tempus, Ave",
+        city:"Boston",
+        state:"Massachusetts",
+        zipCode:"797883",
         dept:"human Resources"
     },
    
