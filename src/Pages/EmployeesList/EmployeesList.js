@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './EmployeesList.css'
 import {  useSelector } from 'react-redux';
+import { current } from '@reduxjs/toolkit';
 
 
 
 const EmployeesList = ()=>{
     const employees = useSelector((state)=>state.employees)
- 
+    const [currentTable, setCurrentTable] = useState(1)
+    const [employessPerTable, setEmployeesPerTable] = useState(10)
+
+
+
+
 
     const tableHeader = ()=>{
         let header = Object.keys(employees[0])
@@ -45,6 +51,17 @@ const EmployeesList = ()=>{
                   </tbody>
               </table>
           </section> 
+          <section className='pagination-btn'>
+              {currentTable && currentTable === 1 ?  <button className='btn-visiblity'>Previous</button>: 
+                 <button>Previous</button>
+              }
+           
+            <p className='pagination-p'>{currentTable}</p>
+            
+            {employees && employees.length > 10 ?  <button>Next</button> :
+              <button className='btn-visiblity'>Previous</button>
+            }
+          </section>
         </main>
     )
 }
