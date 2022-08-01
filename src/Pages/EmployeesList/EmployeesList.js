@@ -8,8 +8,6 @@ const EmployeesList = ()=>{
     const employees = useSelector((state)=>state.employees)
  
 
-   console.log(employees)
-
     const tableHeader = ()=>{
         let header = Object.keys(employees[0])
          return header.map((key, index)=>(
@@ -20,15 +18,15 @@ const EmployeesList = ()=>{
     const renderTableDataEmployees = ()=>{
         return employees.map((employee, index)=>(
                <tr key={index}>
-                   <td>{employee.firstName}</td>
-                   <td>{employee.lastName}</td>
-                   <td>{employee.birth}</td>
-                   <td>{employee.startDate}</td>
-                   <td>{employee.street}</td>
-                   <td>{employee.city}</td>
-                   <td>{employee.state}</td>
-                   <td>{employee.zipCode}</td>
-                   <td>{employee.dept}</td>
+                   <td data-label="First Name">{employee.firstName}</td>
+                   <td data-label="Last name">{employee.lastName}</td>
+                   <td data-label="Birth">{employee.birth}</td>
+                   <td data-label="Start date">{employee.startDate}</td>
+                   <td data-label="Street">{employee.street}</td>
+                   <td data-label="City">{employee.city}</td>
+                   <td data-label="State">{employee.state}</td>
+                   <td data-label="Zip Code">{employee.zipCode}</td>
+                   <td data-label="Department">{employee.dept}</td>
                </tr>
          
         ))
@@ -39,8 +37,10 @@ const EmployeesList = ()=>{
            <h1>Current Employees</h1>
           <section>
               <table id="employees">
+              <thead>
+                 <tr>{tableHeader()}</tr>
+              </thead>
                   <tbody>
-                      <tr>{tableHeader()}</tr>
                       {renderTableDataEmployees()}
                   </tbody>
               </table>

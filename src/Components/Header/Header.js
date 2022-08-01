@@ -12,7 +12,7 @@ const Header =()=>{
     return(
         <header>
             <div className='logo-wealth'>
-                <img src={logo} alt="wealth health logo"></img>
+                <img src={logo} alt="wealth health logo" loading="lazy"></img>
             </div>
             <div className='logo-hrnet'>
                  <span>HRnet</span>

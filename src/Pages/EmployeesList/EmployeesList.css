@@ -20,3 +20,26 @@
 section{
     margin-top: 60px;
 }
+
+
+@media (max-width: 980px){
+    table thead {
+    display: none;
+    }
+    
+    table tr{
+    display: block;
+    margin-bottom: 40px;
+    }
+    
+    table td {
+    display: block;
+    text-align: right;
+    }
+    
+    table td:before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    }
+    }
