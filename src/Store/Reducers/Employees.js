@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { DEFAULT_EMPLOYEES_LIST } from '../../data/employeesData'
+import { DEFAULT_EMPLOYEES_LIST } from '../../data/employeesData';
 
 
 
