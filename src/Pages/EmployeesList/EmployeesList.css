@@ -1,8 +1,7 @@
 #employees{
     text-align:center;
-    border-collapse:collpase;
+    border-collapse:collapse;
     border: 2px solid  #5A6F07;
-    border-radius: 5px;
 }
 #employees td, #employees th{
     border: 1px solid #ddd;

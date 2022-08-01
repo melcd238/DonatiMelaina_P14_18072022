@@ -1,16 +1,17 @@
+import React from 'react';
 import './EmployeesList.css'
-import { useDispatch, useSelector } from 'react-redux';
+import {  useSelector } from 'react-redux';
+
 
 
 const EmployeesList = ()=>{
     const employees = useSelector((state)=>state.employees)
-    const dispatch = useDispatch();
+ 
 
-    console.log(employees)
+   console.log(employees)
 
     const tableHeader = ()=>{
         let header = Object.keys(employees[0])
-        console.log(header)
          return header.map((key, index)=>(
              <th key={index}>{key.toUpperCase()}</th>
          ))
