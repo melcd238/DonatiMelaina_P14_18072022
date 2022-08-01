@@ -10,8 +10,20 @@ const EmployeesList = ()=>{
     const [currentTable, setCurrentTable] = useState(1)
     const [employessPerTable, setEmployeesPerTable] = useState(10)
 
+    const indexOfLastEmployee = currentTable * employessPerTable;
+    const indexOfFirstEmployee = indexOfLastEmployee - employessPerTable;
+    const currentEmployees = employees.slice(indexOfFirstEmployee, indexOfLastEmployee)
+    
 
+    const nextPaginate = ()=>{
+       
+            setCurrentTable(currentTable + 1)
+        
+    }
 
+    const prevPaginate = ()=>{
+        setCurrentTable(currentTable - 1)
+    }
 
 
     const tableHeader = ()=>{
@@ -22,7 +34,7 @@ const EmployeesList = ()=>{
     }
 
     const renderTableDataEmployees = ()=>{
-        return employees.map((employee, index)=>(
+        return currentEmployees.map((employee, index)=>(
                <tr key={index}>
                    <td data-label="First Name">{employee.firstName}</td>
                    <td data-label="Last name">{employee.lastName}</td>
@@ -53,13 +65,13 @@ const EmployeesList = ()=>{
           </section> 
           <section className='pagination-btn'>
               {currentTable && currentTable === 1 ?  <button className='btn-visiblity'>Previous</button>: 
-                 <button>Previous</button>
+                 <button onClick={(e)=>prevPaginate(e)} >Previous</button>
               }
            
             <p className='pagination-p'>{currentTable}</p>
-            
-            {employees && employees.length > 10 ?  <button>Next</button> :
-              <button className='btn-visiblity'>Previous</button>
+
+            {currentEmployees && currentEmployees.length < employessPerTable ?  <button className='btn-visiblity'>Previous</button> :
+              <button onClick={(e)=>nextPaginate(e)} >Next</button> 
             }
           </section>
         </main>
