@@ -61,6 +61,37 @@ section{
 .btn-visiblity{
     visibility: hidden;
 }
+.form-container-entries{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    gap:20px;
+    box-shadow: 0 0px 10px -2px #1f2235;
+    padding:8px;
+    border-radius:5px;
+}
+.form-container-entries span{
+    color: rgb(230, 227, 227);
+    background-color: #5A6F07;
+    font-size: 20px;
+    padding:8px;
+    display:block;
+    border-radius:5px;
+}
+.form-container-entries label{
+    color: rgb(230, 227, 227);
+    background-color: #5A6F07;
+    font-size: 20px;
+    padding:8px;
+    display:block;
+    border-radius:5px;
+
+}
+.showAndSearchContainer{
+    display:flex;
+    align-items: center;
+    gap:100px;
+}
 
 
 @media (max-width: 980px){

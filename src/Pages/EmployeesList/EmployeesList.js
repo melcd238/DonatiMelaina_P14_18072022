@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './EmployeesList.css'
 import {  useSelector } from 'react-redux';
+import { Formik, Field, Form} from 'formik';
+import * as Yup from 'yup';
 
 
 
@@ -50,9 +52,49 @@ const EmployeesList = ()=>{
         ))
     }
 
+    const renderShowEntries =()=>{
+        return(
+            <div>
+                <Formik initialValues={employessPerTable}>
+
+                <Form className='form-container-entries'>
+                    <span>Show</span>
+                <Field name="entries"  component="select" className="select-input">
+                        <option value={employessPerTable}>{employessPerTable}</option>
+                        <option value={20}>{20}</option>
+                        <option value={30}>{30}</option>
+                </Field>
+                     <span>entries</span>
+                </Form>
+
+                </Formik>
+
+            </div>
+        )
+    }
+
+    const renderSearchBar =()=>{
+        return(
+            <div>
+                <Formik initialValues={""}>
+                    <Form className='form-container-entries'>
+                       <label htmlFor='search'>Search:</label>
+                        <Field name="search" type="text"  className="select-input"></Field>
+                    </Form>
+                </Formik>
+            </div>
+        )
+    }
+
     return(
         <main className="employees-container">
            <h1>Current Employees</h1>
+
+           <section className='showAndSearchContainer'>
+               {renderShowEntries()}
+               {renderSearchBar()}
+           </section>
+
           <section>
               <table id="employees">
               <thead>
