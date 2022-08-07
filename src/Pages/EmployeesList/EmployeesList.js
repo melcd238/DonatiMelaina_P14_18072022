@@ -55,16 +55,23 @@ const EmployeesList = ()=>{
     const renderShowEntries =()=>{
         return(
             <div>
-                <Formik initialValues={employessPerTable}>
+                <Formik initialValues={{entrie: employessPerTable}}
+                
+                 onSubmit={(values, { setSubmitting }) => {
+                     let entries = Object.values(values)
+                    setSubmitting(false)
+                    setEmployeesPerTable(parseInt(entries[0]))
+                }}>
 
                 <Form className='form-container-entries'>
                     <span>Show</span>
-                <Field name="entries"  component="select" className="select-input">
-                        <option value={employessPerTable}>{employessPerTable}</option>
-                        <option value={20}>{20}</option>
-                        <option value={30}>{30}</option>
+                <Field name="entrie"  component="select" className="select-input">
+                        <option value={10}>10</option>
+                        <option value={20}>20</option>
+                        <option value={30}>30</option>
                 </Field>
                      <span>entries</span>
+                     <button type="submit">Submit</button>
                 </Form>
 
                 </Formik>
