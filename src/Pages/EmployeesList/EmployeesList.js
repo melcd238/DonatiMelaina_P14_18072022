@@ -71,7 +71,7 @@ const EmployeesList = ()=>{
                         <option value={30}>30</option>
                 </Field>
                      <span>entries</span>
-                     <button type="submit">Submit</button>
+                     <button type="submit" className='btn-entries'>Submit</button>
                 </Form>
 
                 </Formik>
