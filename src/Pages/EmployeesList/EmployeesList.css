@@ -16,6 +16,23 @@
 #employees th{
     background-color: #5A6F07;
     color:white;
+    width:160px;
+}
+.spanArrow{
+display:flex;
+flex-direction:column;
+gap:10px;
+}
+.spanArrow img{
+width:12px;
+height:12px;
+cursor:pointer;
+}
+.spanArrow img:active{
+border: 1px solid #93AC18;
+background-color: #93AC18;
+padding:4px;
+border-radius:50%;
 }
 section{
     margin-top: 60px;

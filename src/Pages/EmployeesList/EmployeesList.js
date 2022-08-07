@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import './EmployeesList.css'
 import {  useSelector } from 'react-redux';
 import { Formik, Field, Form, ErrorMessage} from 'formik';
+import arrowUp from '../../Assets/arrowUp.png';
+import arrowBack from '../../Assets/arrowBack.png';
 import * as Yup from 'yup';
 
 
@@ -18,6 +20,14 @@ const EmployeesList = ()=>{
     const indexOfFirstEmployee = indexOfLastEmployee - employessPerTable;
     const currentEmployees = employees.slice(indexOfFirstEmployee, indexOfLastEmployee)
 
+    const collator = new Intl.Collator('en');
+    const sortArray=(x,y)=>{
+        // make switch case
+        return collator.compare(x.firstName, y.firstName);
+    }
+    employees.sort(sortArray)
+  
+
     const validationSchema = Yup.object().shape({
         search: Yup.string()
             .min(2, "To short")
@@ -26,7 +36,7 @@ const EmployeesList = ()=>{
           
     });
     
-    
+
 
     const nextPaginate = ()=>{
        
@@ -42,7 +52,9 @@ const EmployeesList = ()=>{
     const tableHeader = ()=>{
         let header = Object.keys(employees[0])
          return header.map((key, index)=>(
-             <th key={index}>{key.toUpperCase()}</th>
+             <th key={index}>{key.toUpperCase()}
+             <span className='spanArrow'><img src={arrowUp} alt="arrowUp" id= {`Up${key}`} onClick={(e)=>console.log(index)}/>
+             <img src={arrowBack} alt="arrowBack"  id= {`Back${key}`} onClick={(e)=>console.log("Back")}/></span></th>
          ))
     }
 
