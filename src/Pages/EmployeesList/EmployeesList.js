@@ -21,11 +21,24 @@ const EmployeesList = ()=>{
     const currentEmployees = employees.slice(indexOfFirstEmployee, indexOfLastEmployee)
 
     const collator = new Intl.Collator('en');
-    const sortArray=(x,y)=>{
-        // make switch case
+    let sortArray=(x,y)=>{
+        // make switch case with option?
         return collator.compare(x.firstName, y.firstName);
     }
     employees.sort(sortArray)
+
+    const handelSort =(id)=>{
+       console.log(id)
+       if(id === "BackfirstName"){
+         let  sortArraydes=(x,y)=>{
+            return collator.compare(y.firstName,x.firstName);
+           }
+           employees.sort(sortArraydes)
+       }
+       
+           console.log(employees)
+       
+    }
   
 
     const validationSchema = Yup.object().shape({
@@ -53,8 +66,8 @@ const EmployeesList = ()=>{
         let header = Object.keys(employees[0])
          return header.map((key, index)=>(
              <th key={index}>{key.toUpperCase()}
-             <span className='spanArrow'><img src={arrowUp} alt="arrowUp" id= {`Up${key}`} onClick={(e)=>console.log(index)}/>
-             <img src={arrowBack} alt="arrowBack"  id= {`Back${key}`} onClick={(e)=>console.log("Back")}/></span></th>
+             <span className='spanArrow'><img src={arrowUp} alt="arrowUp" id= {`Up${key}`} className={key} onClick={(e)=>handelSort(`Up${key}`)}/>
+             <img src={arrowBack} alt="arrowBack"  id= {`Back${key}`} onClick={(e)=>handelSort(`Back${key}`)}/></span></th>
          ))
     }
 
