@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './EmployeesList.css'
 import {  useSelector } from 'react-redux';
-import { Formik, Field, Form} from 'formik';
+import { Formik, Field, Form, ErrorMessage} from 'formik';
 import * as Yup from 'yup';
 
 
@@ -11,10 +11,21 @@ const EmployeesList = ()=>{
     const employees = useSelector((state)=>state.employees)
     const [currentTable, setCurrentTable] = useState(1)
     const [employessPerTable, setEmployeesPerTable] = useState(10)
+    const [searchBar, setSearchBar]= useState(false)
+    let [filterEmployees, setFilterEmployees]= useState([])
 
     const indexOfLastEmployee = currentTable * employessPerTable;
     const indexOfFirstEmployee = indexOfLastEmployee - employessPerTable;
     const currentEmployees = employees.slice(indexOfFirstEmployee, indexOfLastEmployee)
+
+    const validationSchema = Yup.object().shape({
+        search: Yup.string()
+            .min(2, "To short")
+            .max(10, "To long!")
+            .required("Field is required"),             
+          
+    });
+    
     
 
     const nextPaginate = ()=>{
@@ -36,6 +47,30 @@ const EmployeesList = ()=>{
     }
 
     const renderTableDataEmployees = ()=>{
+      if(searchBar){
+          if(filterEmployees.length >0){
+            return filterEmployees.map((employee, index)=>(
+                <tr key={index}>
+                    <td data-label="First Name">{employee.firstName}</td>
+                    <td data-label="Last name">{employee.lastName}</td>
+                    <td data-label="Birth">{employee.birth}</td>
+                    <td data-label="Start date">{employee.startDate}</td>
+                    <td data-label="Street">{employee.street}</td>
+                    <td data-label="City">{employee.city}</td>
+                    <td data-label="State">{employee.state}</td>
+                    <td data-label="Zip Code">{employee.zipCode}</td>
+                    <td data-label="Department">{employee.dept}</td>
+                </tr>
+          
+         ))
+
+          } else if (filterEmployees.length === 0) {
+             return( <tr>
+                <td> No matching records found </td> 
+              </tr>)
+          }
+
+      }else{
         return currentEmployees.map((employee, index)=>(
                <tr key={index}>
                    <td data-label="First Name">{employee.firstName}</td>
@@ -50,8 +85,10 @@ const EmployeesList = ()=>{
                </tr>
          
         ))
+        }
     }
 
+   
     const renderShowEntries =()=>{
         return(
             <div>
@@ -60,6 +97,7 @@ const EmployeesList = ()=>{
                  onSubmit={(values, { setSubmitting }) => {
                      let entries = Object.values(values)
                     setSubmitting(false)
+                    setSearchBar(false)
                     setEmployeesPerTable(parseInt(entries[0]))
                 }}>
 
@@ -83,10 +121,30 @@ const EmployeesList = ()=>{
     const renderSearchBar =()=>{
         return(
             <div>
-                <Formik initialValues={""}>
+                <Formik initialValues={{search:""}}
+                 validationSchema={validationSchema}
+                  onSubmit={(values,{setSubmitting, resetForm})=>{
+                      let option = Object.values(values)
+                      filterEmployees = employees.filter(elt => elt.firstName.toLowerCase().includes(option[0].toLowerCase()) 
+                      || elt.lastName.toLowerCase().includes(option[0].toLowerCase()) || elt.state.toLowerCase().includes(option[0].toLowerCase())
+                      || elt.city.toLowerCase().includes(option[0].toLowerCase())
+                      || elt.dept.toLowerCase().includes(option[0].toLowerCase())
+                      || elt.zipCode.toString().includes(option[0])
+                      || elt.birth.includes(option[0])
+                      || elt.startDate.includes(option[0])
+                      || elt.street.includes(option[0]))
+                      setSearchBar(true)
+                      setFilterEmployees(filterEmployees)
+                      console.log(filterEmployees)
+                      setSubmitting(false)
+                      resetForm({search:""})
+                  }}
+                >
                     <Form className='form-container-entries'>
                        <label htmlFor='search'>Search:</label>
-                        <Field name="search" type="text"  className="select-input"></Field>
+                        <Field name="search" type="text"  className="select-input" placeholder="search for anything among employees"></Field>
+                        <ErrorMessage name="search" component="div" style={{color: "red"}}/>
+                        <button type="submit" className='btn-entries'>Submit</button>
                     </Form>
                 </Formik>
             </div>
@@ -109,6 +167,7 @@ const EmployeesList = ()=>{
               </thead>
                   <tbody>
                       {renderTableDataEmployees()}
+                     
                   </tbody>
               </table>
           </section> 
@@ -119,9 +178,10 @@ const EmployeesList = ()=>{
            
             <p className='pagination-p'>{currentTable}</p>
 
-            {currentEmployees && currentEmployees.length < employessPerTable ?  <button className='btn-visiblity'>Previous</button> :
+            { currentEmployees && currentEmployees.length  < employessPerTable  ?  <button className='btn-visiblity'>Next</button> :
               <button onClick={(e)=>nextPaginate(e)} >Next</button> 
             }
+            
           </section>
         </main>
     )
