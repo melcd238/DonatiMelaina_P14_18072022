@@ -295,7 +295,7 @@ const EmployeesList = ()=>{
           <div className='footerTable'>
           <section className='showingToEntries'>
             <p className='showingParagrh'>Showing <span>{indexOfFirstEmployee+1}</span> to
-            {indexOfFirstEmployee+1===employees.length ? <span>{employees.length}</span> :  <span>{employessPerTable*currentTable}</span> }
+            {indexOfFirstEmployee+1===employees.length || employees.length<employessPerTable*currentTable ? <span>{employees.length}</span> :  <span>{employessPerTable*currentTable}</span> }
              of <span>{employees.length}</span> entries.</p>
           </section>
           <section className='pagination-btn'>
