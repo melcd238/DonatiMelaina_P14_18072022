@@ -33,7 +33,7 @@ const EmployeesList = ()=>{
 
    const currentEmployees=employeesSorting.slice(indexOfFirstEmployee, indexOfLastEmployee)
 
-  
+ 
 
     const handelSort =(id)=>{
        if(id === "UpfirstName"){
@@ -292,6 +292,12 @@ const EmployeesList = ()=>{
                   </tbody>
               </table>
           </section> 
+          <div className='footerTable'>
+          <section className='showingToEntries'>
+            <p className='showingParagrh'>Showing <span>{indexOfFirstEmployee+1}</span> to
+            {indexOfFirstEmployee+1===employees.length ? <span>{employees.length}</span> :  <span>{employessPerTable*currentTable}</span> }
+             of <span>{employees.length}</span> entries.</p>
+          </section>
           <section className='pagination-btn'>
               {currentTable && currentTable === 1 ?  <button className='btn-visiblity'>Previous</button>: 
                  <button onClick={(e)=>prevPaginate(e)} >Previous</button>
@@ -304,6 +310,7 @@ const EmployeesList = ()=>{
             }
             
           </section>
+          </div>
         </main>
     )
 }
