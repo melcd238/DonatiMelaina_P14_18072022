@@ -104,7 +104,7 @@ export let DEFAULT_EMPLOYEES_LIST = [
         birth:"1975-12-20",
         startDate:"2003-10-30",
         street:"541-8493 Ultrices. Rd.",
-        city:" Springfield",
+        city:"Springfield",
         state:"Illinois",
         zipCode:"797882",
         dept:"marketing"
