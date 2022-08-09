@@ -11,14 +11,15 @@ import * as Yup from 'yup';
 
 const EmployeesList = ()=>{
     const employees = useSelector((state)=>state.employees)
-    
+    const employeesCopy = [...employees]
+   
     const [currentTable, setCurrentTable] = useState(1)
     const [employessPerTable, setEmployeesPerTable] = useState(10)
     const indexOfLastEmployee = currentTable * employessPerTable;
     const indexOfFirstEmployee = indexOfLastEmployee - employessPerTable;
-    const [employeesSorting, setEmployeesSorting] = useState(employees)
+    const [employeesSorting, setEmployeesSorting] = useState(employeesCopy)
     const [searchBar, setSearchBar]= useState(false)
-    let [filterEmployees, setFilterEmployees]= useState(employees)
+    let [filterEmployees, setFilterEmployees]= useState(employeesCopy)
     let currentEmployees;
    
  
