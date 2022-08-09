@@ -236,7 +236,7 @@ const EmployeesList = ()=>{
     const renderTableDataEmployees = ()=>{
       if(searchBar){
           if(currentEmployees.length >0){
-            return filterEmployees.map((employee, index)=>(
+            return currentEmployees.map((employee, index)=>(
                 <tr key={index}>
                     <td data-label="First Name">{employee.firstName}</td>
                     <td data-label="Last name">{employee.lastName}</td>
@@ -251,7 +251,7 @@ const EmployeesList = ()=>{
           
          ))
 
-          } else if (filterEmployees.length === 0) {
+          } else if (currentEmployees.length === 0) {
              return( <tr>
                 <td> No matching records found </td> 
               </tr>)
@@ -322,7 +322,6 @@ const EmployeesList = ()=>{
                       || elt.street.includes(option[0]))
                       setSearchBar(true)
                       setFilterEmployees(filterEmployees)
-                      console.log(filterEmployees)
                       setSubmitting(false)
                       resetForm({search:""})
                   }}
