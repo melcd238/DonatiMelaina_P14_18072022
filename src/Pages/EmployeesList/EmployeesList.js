@@ -338,6 +338,24 @@ const EmployeesList = ()=>{
         )
     }
 
+    const renderShowingToEntries = ()=>{
+         if(!searchBar){
+             return(
+            <p className='showingParagrh'>Showing <span>{indexOfFirstEmployee+1}</span> to
+            {indexOfFirstEmployee+1===employees.length || employees.length<employessPerTable*currentTable ? <span>{employees.length}</span> :  <span>{employessPerTable*currentTable}</span> }
+             of <span>{employees.length}</span> entries.</p>
+             )
+         } else{
+             return(
+            <p className='showingParagrh'>Showing <span>{indexOfFirstEmployee+1}</span> to
+            {indexOfFirstEmployee+1===filterEmployees.length || filterEmployees.length<employessPerTable*currentTable ? <span>{filterEmployees.length}</span> :  <span>{employessPerTable*currentTable}</span> }
+             of <span>{filterEmployees.length}</span>
+             entries.(Filtered from  <span>{employees.length}</span> total entries)</p>
+             )
+         }
+
+    }
+
     return(
         <main className="employees-container">
            <h1>Current Employees</h1>
@@ -360,9 +378,7 @@ const EmployeesList = ()=>{
           </section> 
           <div className='footerTable'>
           <section className='showingToEntries'>
-            <p className='showingParagrh'>Showing <span>{indexOfFirstEmployee+1}</span> to
-            {indexOfFirstEmployee+1===employees.length || employees.length<employessPerTable*currentTable ? <span>{employees.length}</span> :  <span>{employessPerTable*currentTable}</span> }
-             of <span>{employees.length}</span> entries.</p>
+               {renderShowingToEntries()}
           </section>
           <section className='pagination-btn'>
               {currentTable && currentTable === 1 ?  <button className='btn-visiblity'>Previous</button>: 
