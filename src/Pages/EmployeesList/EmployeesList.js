@@ -11,14 +11,7 @@ import * as Yup from 'yup';
 
 const EmployeesList = ()=>{
     const employees = useSelector((state)=>state.employees)
-    const collator = new Intl.Collator('en');
-    let sortArray=(x,y)=>{
-        return collator.compare(x.firstName, y.firstName);   
-    }
-    employees.sort(sortArray)
-
-
-
+    
     const [currentTable, setCurrentTable] = useState(1)
     const [employessPerTable, setEmployeesPerTable] = useState(10)
     const indexOfLastEmployee = currentTable * employessPerTable;
@@ -35,13 +28,14 @@ const EmployeesList = ()=>{
  }else if(searchBar){
     currentEmployees=filterEmployees.slice(indexOfFirstEmployee, indexOfLastEmployee) 
  }
-   
+    
 
  
 
     const handelSort =(id)=>{
+        const collator = new Intl.Collator('en');
        if(id === "UpfirstName"){
-        sortArray=(x,y)=>{
+       let sortArray=(x,y)=>{
             return collator.compare(x.firstName, y.firstName);   
             }
             if(searchBar){
@@ -50,7 +44,7 @@ const EmployeesList = ()=>{
                 setEmployeesSorting([...employeesSorting.sort(sortArray)])
             }
        } else if(id === "BackfirstName"){
-           sortArray=(x,y)=>{
+        let   sortArray=(x,y)=>{
             return collator.compare(y.firstName, x.firstName);   
             }
         if(searchBar){
@@ -59,7 +53,7 @@ const EmployeesList = ()=>{
             setEmployeesSorting([...employeesSorting.sort(sortArray)]) 
         }
        } else if(id === "UplastName"){
-        sortArray=(x,y)=>{
+       let sortArray=(x,y)=>{
             return collator.compare(x.lastName, y.lastName);   
             }
             if(searchBar){
@@ -68,7 +62,7 @@ const EmployeesList = ()=>{
          setEmployeesSorting([...employeesSorting.sort(sortArray)])
             } 
        } else if(id === "BacklastName"){
-        sortArray=(x,y)=>{
+       let  sortArray=(x,y)=>{
             return collator.compare(y.lastName, x.lastName);   
             }
             if(searchBar){
@@ -77,7 +71,7 @@ const EmployeesList = ()=>{
          setEmployeesSorting([...employeesSorting.sort(sortArray)])
             }
        } else if(id === "Upcity"){
-        sortArray=(x,y)=>{
+       let  sortArray=(x,y)=>{
             return collator.compare(x.city, y.city);   
             }
             if(searchBar){
@@ -86,7 +80,7 @@ const EmployeesList = ()=>{
         setEmployeesSorting([...employeesSorting.sort(sortArray)])
             }
        } else if(id === "Backcity"){
-        sortArray=(x,y)=>{
+      let  sortArray=(x,y)=>{
             return collator.compare(y.city, x.city);   
             } 
             if(searchBar){
@@ -95,7 +89,7 @@ const EmployeesList = ()=>{
         setEmployeesSorting([...employeesSorting.sort(sortArray)])
             }
        }else if(id === "Upstate"){
-        sortArray=(x,y)=>{
+       let sortArray=(x,y)=>{
             return collator.compare(x.state, y.state);   
             }
             if(searchBar){
@@ -104,7 +98,7 @@ const EmployeesList = ()=>{
         setEmployeesSorting([...employeesSorting.sort(sortArray)])
             }
        }else if(id === "Backstate"){
-        sortArray=(x,y)=>{
+       let sortArray=(x,y)=>{
             return collator.compare(y.state, x.state);   
             }
             if(searchBar){
@@ -113,7 +107,7 @@ const EmployeesList = ()=>{
         setEmployeesSorting([...employeesSorting.sort(sortArray)])
             } 
        }else if(id === "Updept"){
-        sortArray=(x,y)=>{
+       let sortArray=(x,y)=>{
             return collator.compare(x.dept, y.dept);   
             }
             if(searchBar){
@@ -123,7 +117,7 @@ const EmployeesList = ()=>{
             }
        }
        else if(id === "Backdept"){
-        sortArray=(x,y)=>{
+       let  sortArray=(x,y)=>{
             return collator.compare(y.dept, x.dept);   
             }
             if(searchBar){
@@ -132,7 +126,7 @@ const EmployeesList = ()=>{
         setEmployeesSorting([...employeesSorting.sort(sortArray)])
             }
        }else if(id === "Upbirth"){
-        sortArray=(x,y)=>{
+       let sortArray=(x,y)=>{
             return collator.compare(x.birth, y.birth);   
             }
             if(searchBar){
@@ -141,7 +135,7 @@ const EmployeesList = ()=>{
          setEmployeesSorting([...employeesSorting.sort(sortArray)])
             }
        }else if(id === "Backbirth"){
-        sortArray=(x,y)=>{
+       let  sortArray=(x,y)=>{
             return collator.compare(y.birth, x.birth);   
             }
             if(searchBar){
@@ -150,7 +144,7 @@ const EmployeesList = ()=>{
         setEmployeesSorting([...employeesSorting.sort(sortArray)])
             }
        }else if(id === "UpstartDate"){
-        sortArray=(x,y)=>{
+       let  sortArray=(x,y)=>{
             return collator.compare(x.startDate, y.startDate);   
             }
             if(searchBar){
@@ -160,7 +154,7 @@ const EmployeesList = ()=>{
             } 
        }
        else if(id === "BackstartDate"){
-        sortArray=(x,y)=>{
+       let sortArray=(x,y)=>{
             return collator.compare(y.startDate, x.startDate);   
             }       
              if(searchBar){
@@ -168,7 +162,7 @@ const EmployeesList = ()=>{
             }else{
         setEmployeesSorting([...employeesSorting.sort(sortArray)])}
        }else if(id === "UpzipCode"){
-        sortArray=(x,y)=>{
+       let  sortArray=(x,y)=>{
             return collator.compare(x.zipCode, y.zipCode);   
             }
             if(searchBar){
@@ -176,7 +170,7 @@ const EmployeesList = ()=>{
             }else{
         setEmployeesSorting([...employeesSorting.sort(sortArray)])}
        }else if(id === "BackzipCode"){
-        sortArray=(x,y)=>{
+      let  sortArray=(x,y)=>{
             return collator.compare(y.zipCode, x.zipCode);   
             }
             if(searchBar){
@@ -184,7 +178,7 @@ const EmployeesList = ()=>{
             }else{
         setEmployeesSorting([...employeesSorting.sort(sortArray)])}
        }else if(id === "Upstreet"){
-        sortArray=(x,y)=>{
+       let  sortArray=(x,y)=>{
             return collator.compare(x.street, y.street);   
             }
             if(searchBar){
@@ -192,7 +186,7 @@ const EmployeesList = ()=>{
             }else{
         setEmployeesSorting([...employeesSorting.sort(sortArray)])}
        }else if(id === "Backstreet"){
-        sortArray=(x,y)=>{
+       let sortArray=(x,y)=>{
             return collator.compare(y.street, x.street);   
             }
             if(searchBar){

@@ -8,8 +8,11 @@ export const employeesSlice = createSlice({
     initialState: DEFAULT_EMPLOYEES_LIST,
     reducers:{
         addEmployee: (state, action)=>{
-            console.log(state, action)
-               return [...state, action.payload]
+            const collator = new Intl.Collator('en');
+            let sortArray=(x,y)=>{
+                return collator.compare(x.firstName, y.firstName);   
+            }
+               return [...state, action.payload].sort(sortArray)
         }
     }
 })
