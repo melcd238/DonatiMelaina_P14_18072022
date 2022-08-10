@@ -12,7 +12,7 @@ import * as Yup from 'yup';
 const EmployeesList = ()=>{
     const employees = useSelector((state)=>state.employees)
     const employeesCopy = [...employees]
-   
+ 
     const [currentTable, setCurrentTable] = useState(1)
     const [employessPerTable, setEmployeesPerTable] = useState(10)
     const indexOfLastEmployee = currentTable * employessPerTable;
@@ -31,7 +31,6 @@ const EmployeesList = ()=>{
  }
     
 
- 
 
     const handelSort =(id)=>{
         const collator = new Intl.Collator('en');
@@ -233,8 +232,10 @@ const EmployeesList = ()=>{
          ))
     }
 
+
+
     const renderTableDataEmployees = ()=>{
-      if(searchBar){
+     
           if(currentEmployees.length >0){
             return currentEmployees.map((employee, index)=>(
                 <tr key={index}>
@@ -257,22 +258,6 @@ const EmployeesList = ()=>{
               </tr>)
           }
 
-      }else{
-        return currentEmployees.map((employee, index)=>(
-               <tr key={index}>
-                   <td data-label="First Name">{employee.firstName}</td>
-                   <td data-label="Last name">{employee.lastName}</td>
-                   <td data-label="Birth">{employee.birth}</td>
-                   <td data-label="Start date">{employee.startDate}</td>
-                   <td data-label="Street">{employee.street}</td>
-                   <td data-label="City">{employee.city}</td>
-                   <td data-label="State">{employee.state}</td>
-                   <td data-label="Zip Code">{employee.zipCode}</td>
-                   <td data-label="Department">{employee.dept}</td>
-               </tr>
-         
-        ))
-        }
     }
 
    

@@ -1,3 +1,4 @@
+import React, { useState } from "react"
 import './Home.css';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
@@ -5,11 +6,16 @@ import { statesOptions } from '../../data/states';
 import { servicesOptions } from '../../data/services';
 import { addEmployee } from '../../Store/Reducers/Employees';
 import { useDispatch } from 'react-redux';
+import { Modal } from 'simple-modal-component-library';
 
 
 const Home = ()=>{
-  
+    const [isShowing, setIsShowing] = useState(false)
     const dispatch = useDispatch();
+
+    const closeModal = () =>{
+        setIsShowing(!isShowing)
+      }
 
     const validationSchema = Yup.object().shape({
         firstName: Yup.string()
@@ -60,6 +66,7 @@ const Home = ()=>{
                                   zipCode:"",
                                   dept:"",
                               })
+                              setIsShowing(true)
                           
                           }}
                 
@@ -134,6 +141,7 @@ const Home = ()=>{
                         <button className='btn-save' type="submit">Save</button> 
                     </Form>
                 </Formik>
+                {isShowing ? <Modal label='Employee created !' closeModal={(e)=>closeModal()} stylesModal="SUCCESS"/> : null}
 
             </div>
 
