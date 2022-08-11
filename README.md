@@ -19,5 +19,5 @@ Yup.
 ## Installation and launch this project: 
 Clone this repository.\
 Run `npm install` to install dependencies.\
-Run `npm start` to start the project.
+Run `npm start` to start the project. 
 
