@@ -3,6 +3,7 @@ The goal is to redesign the HRNet application to reduce its technical debt with 
 The old app uses jQuery on the front end, which leads to massive bugs and increased internal complaints.(old app link: https://github.com/OpenClassrooms-Student-Center/P12_Front-end).\
 
 
+<img width="1001" alt="hrnet" src="https://user-images.githubusercontent.com/46504445/184104213-432a91d2-58a3-492a-82cc-d0eddbf2b890.png">
 
 
 
