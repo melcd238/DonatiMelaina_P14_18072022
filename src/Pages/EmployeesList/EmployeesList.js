@@ -269,7 +269,6 @@ const EmployeesList = ()=>{
                  onSubmit={(values, { setSubmitting }) => {
                      let entries = Object.values(values)
                     setSubmitting(false)
-                    setSearchBar(false)
                     setEmployeesPerTable(parseInt(entries[0]))
                 }}>
 
@@ -308,7 +307,8 @@ const EmployeesList = ()=>{
                       setSearchBar(true)
                       setFilterEmployees(filterEmployees)
                       setSubmitting(false)
-                      resetForm({search:""})
+                     resetForm({search:""})
+                      
                   }}
                 >
                     <Form className='form-container-entries'>
@@ -343,6 +343,7 @@ const EmployeesList = ()=>{
     return(
         <main className="employees-container">
            <h1>Current Employees</h1>
+           <button className='btn-entries' onClick={(e)=>setSearchBar(false)}>See all Employees</button>
 
            <section className='showAndSearchContainer'>
                {renderShowEntries()}
