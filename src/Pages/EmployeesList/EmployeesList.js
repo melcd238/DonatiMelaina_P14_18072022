@@ -36,7 +36,7 @@ const EmployeesList = ()=>{
         const collator = new Intl.Collator('en');
        if(id === "UpfirstName"){
        let sortArray=(x,y)=>{
-            return collator.compare(x.firstName, y.firstName);   
+            return collator.compare(x.firstName, y.lastName);   
             }
             if(searchBar){
                 setFilterEmployees([...filterEmployees.sort(sortArray)])
@@ -52,6 +52,7 @@ const EmployeesList = ()=>{
         }else{
             setEmployeesSorting([...employeesSorting.sort(sortArray)]) 
         }
+
        } else if(id === "UplastName"){
        let sortArray=(x,y)=>{
             return collator.compare(x.lastName, y.lastName);   
