@@ -11,7 +11,7 @@ import * as Yup from 'yup';
 
 const  EmployeesList = ()=>{
     const employees = useSelector((state)=>state.employees)
-    
+    console.log(employees)
  
 
     const [currentTable, setCurrentTable] = useState(1)

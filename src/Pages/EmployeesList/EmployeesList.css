@@ -121,6 +121,12 @@ section{
     border: 1px solid  #5A6F07;
     cursor:pointer;
 }
+.btn-entries:hover{
+    color:#5A6F07;
+    transition: all ease 1s;
+    background-color: rgb(230, 227, 227); 
+}
+
 .select-input::placeholder{
   font-size:10px;
 }
