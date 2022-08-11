@@ -9,17 +9,18 @@ import * as Yup from 'yup';
 
 
 
-const EmployeesList = ()=>{
+const  EmployeesList = ()=>{
     const employees = useSelector((state)=>state.employees)
-    const employeesCopy = [...employees]
+    
  
+
     const [currentTable, setCurrentTable] = useState(1)
     const [employessPerTable, setEmployeesPerTable] = useState(10)
     const indexOfLastEmployee = currentTable * employessPerTable;
     const indexOfFirstEmployee = indexOfLastEmployee - employessPerTable;
-    const [employeesSorting, setEmployeesSorting] = useState(employeesCopy)
+    const [employeesSorting, setEmployeesSorting] = useState(employees)
     const [searchBar, setSearchBar]= useState(false)
-    let [filterEmployees, setFilterEmployees]= useState(employeesCopy)
+     let [filterEmployees, setFilterEmployees]= useState(employees)
     let currentEmployees;
    
  
@@ -32,176 +33,38 @@ const EmployeesList = ()=>{
     
 
 
-    const handelSort =(id)=>{
-        const collator = new Intl.Collator('en');
-       if(id === "UpfirstName"){
-       let sortArray=(x,y)=>{
-            return collator.compare(x.firstName, y.lastName);   
-            }
+const handelSort =( key, option)=>{
+     if (option === "ASC"){
             if(searchBar){
-                setFilterEmployees([...filterEmployees.sort(sortArray)])
-            }else{    
-                setEmployeesSorting([...employeesSorting.sort(sortArray)])
-            }
-       } else if(id === "BackfirstName"){
-        let   sortArray=(x,y)=>{
-            return collator.compare(y.firstName, x.firstName);   
-            }
-        if(searchBar){
-            setFilterEmployees([...filterEmployees.sort(sortArray)])
-        }else{
-            setEmployeesSorting([...employeesSorting.sort(sortArray)]) 
+                
+                 const sortedEmployee = [...filterEmployees].sort((a,b)=> a[key].toLowerCase() > b[key].toLowerCase() ? 1 : -1);
+                  setFilterEmployees(sortedEmployee);
+                
+            } 
+            else if(!searchBar){
+             const sortedEmployee = [...employeesSorting].sort((a,b)=> a[key].toLowerCase() > b[key].toLowerCase() ? 1 : -1);
+             setEmployeesSorting(sortedEmployee);
         }
-
-       } else if(id === "UplastName"){
-       let sortArray=(x,y)=>{
-            return collator.compare(x.lastName, y.lastName);   
-            }
-            if(searchBar){
-                setFilterEmployees([...filterEmployees.sort(sortArray)])
-            }else{
-         setEmployeesSorting([...employeesSorting.sort(sortArray)])
-            } 
-       } else if(id === "BacklastName"){
-       let  sortArray=(x,y)=>{
-            return collator.compare(y.lastName, x.lastName);   
-            }
-            if(searchBar){
-                setFilterEmployees([...filterEmployees.sort(sortArray)])
-            }else{
-         setEmployeesSorting([...employeesSorting.sort(sortArray)])
-            }
-       } else if(id === "Upcity"){
-       let  sortArray=(x,y)=>{
-            return collator.compare(x.city, y.city);   
-            }
-            if(searchBar){
-                setFilterEmployees([...filterEmployees.sort(sortArray)])
-            }else{
-        setEmployeesSorting([...employeesSorting.sort(sortArray)])
-            }
-       } else if(id === "Backcity"){
-      let  sortArray=(x,y)=>{
-            return collator.compare(y.city, x.city);   
-            } 
-            if(searchBar){
-                setFilterEmployees([...filterEmployees.sort(sortArray)])
-            }else{
-        setEmployeesSorting([...employeesSorting.sort(sortArray)])
-            }
-       }else if(id === "Upstate"){
-       let sortArray=(x,y)=>{
-            return collator.compare(x.state, y.state);   
-            }
-            if(searchBar){
-                setFilterEmployees([...filterEmployees.sort(sortArray)])
-            }else{
-        setEmployeesSorting([...employeesSorting.sort(sortArray)])
-            }
-       }else if(id === "Backstate"){
-       let sortArray=(x,y)=>{
-            return collator.compare(y.state, x.state);   
-            }
-            if(searchBar){
-                setFilterEmployees([...filterEmployees.sort(sortArray)])
-            }else{
-        setEmployeesSorting([...employeesSorting.sort(sortArray)])
-            } 
-       }else if(id === "Updept"){
-       let sortArray=(x,y)=>{
-            return collator.compare(x.dept, y.dept);   
-            }
-            if(searchBar){
-                setFilterEmployees([...filterEmployees.sort(sortArray)])
-            }else{
-        setEmployeesSorting([...employeesSorting.sort(sortArray)])
-            }
-       }
-       else if(id === "Backdept"){
-       let  sortArray=(x,y)=>{
-            return collator.compare(y.dept, x.dept);   
-            }
-            if(searchBar){
-                setFilterEmployees([...filterEmployees.sort(sortArray)])
-            }else{
-        setEmployeesSorting([...employeesSorting.sort(sortArray)])
-            }
-       }else if(id === "Upbirth"){
-       let sortArray=(x,y)=>{
-            return collator.compare(x.birth, y.birth);   
-            }
-            if(searchBar){
-                setFilterEmployees([...filterEmployees.sort(sortArray)])
-            }else{
-         setEmployeesSorting([...employeesSorting.sort(sortArray)])
-            }
-       }else if(id === "Backbirth"){
-       let  sortArray=(x,y)=>{
-            return collator.compare(y.birth, x.birth);   
-            }
-            if(searchBar){
-                setFilterEmployees([...filterEmployees.sort(sortArray)])
-            }else{
-        setEmployeesSorting([...employeesSorting.sort(sortArray)])
-            }
-       }else if(id === "UpstartDate"){
-       let  sortArray=(x,y)=>{
-            return collator.compare(x.startDate, y.startDate);   
-            }
-            if(searchBar){
-                setFilterEmployees([...filterEmployees.sort(sortArray)])
-            }else{
-        setEmployeesSorting([...employeesSorting.sort(sortArray)])
-            } 
-       }
-       else if(id === "BackstartDate"){
-       let sortArray=(x,y)=>{
-            return collator.compare(y.startDate, x.startDate);   
-            }       
-             if(searchBar){
-                setFilterEmployees([...filterEmployees.sort(sortArray)])
-            }else{
-        setEmployeesSorting([...employeesSorting.sort(sortArray)])}
-       }else if(id === "UpzipCode"){
-       let  sortArray=(x,y)=>{
-            return collator.compare(x.zipCode, y.zipCode);   
-            }
-            if(searchBar){
-                setFilterEmployees([...filterEmployees.sort(sortArray)])
-            }else{
-        setEmployeesSorting([...employeesSorting.sort(sortArray)])}
-       }else if(id === "BackzipCode"){
-      let  sortArray=(x,y)=>{
-            return collator.compare(y.zipCode, x.zipCode);   
-            }
-            if(searchBar){
-                setFilterEmployees([...filterEmployees.sort(sortArray)])
-            }else{
-        setEmployeesSorting([...employeesSorting.sort(sortArray)])}
-       }else if(id === "Upstreet"){
-       let  sortArray=(x,y)=>{
-            return collator.compare(x.street, y.street);   
-            }
-            if(searchBar){
-                setFilterEmployees([...filterEmployees.sort(sortArray)])
-            }else{
-        setEmployeesSorting([...employeesSorting.sort(sortArray)])}
-       }else if(id === "Backstreet"){
-       let sortArray=(x,y)=>{
-            return collator.compare(y.street, x.street);   
-            }
-            if(searchBar){
-                setFilterEmployees([...filterEmployees.sort(sortArray)])
-            }else{
-        setEmployeesSorting([...employeesSorting.sort(sortArray)])} 
-       }
-    
-    
-       
+      
+     }
+     if (option === "DESC"){
+        if(searchBar){
+             const sortedEmployee = [...filterEmployees].sort((a,b)=> a[key].toLowerCase() < b[key].toLowerCase() ? 1 : -1);
+              setFilterEmployees(sortedEmployee);
+        } 
+        else if(!searchBar){
+         const sortedEmployee = [...employeesSorting].sort((a,b)=> a[key].toLowerCase() < b[key].toLowerCase() ? 1 : -1);
+         setEmployeesSorting(sortedEmployee);
+    }
+  
+ }
     }
 
    
-  
+  const renderAllEmployees = ()=>{
+      setSearchBar(false)
+      setEmployeesSorting(employees)
+  }
 
     const validationSchema = Yup.object().shape({
         search: Yup.string()
@@ -228,8 +91,8 @@ const EmployeesList = ()=>{
         let header = Object.keys(employees[0])
          return header.map((key, index)=>(
              <th key={index}>{key.toUpperCase()}
-             <span className='spanArrow'><img src={arrowUp} alt="arrowUp" id= {`Up${key}`} className={key} onClick={(e)=>handelSort(`Up${key}`)}/>
-             <img src={arrowBack} alt="arrowBack"  id= {`Back${key}`} onClick={(e)=>handelSort(`Back${key}`)}/></span></th>
+             <span className='spanArrow'><img src={arrowUp} alt="arrowUp" id= {`Up${key}`} className={key} onClick={(e)=>handelSort(key,"ASC")}/>
+             <img src={arrowBack} alt="arrowBack"  id= {`Back${key}`} onClick={(e)=>handelSort(key, "DESC")}/></span></th>
          ))
     }
 
@@ -344,7 +207,7 @@ const EmployeesList = ()=>{
     return(
         <main className="employees-container">
            <h1>Current Employees</h1>
-           <button className='btn-entries' onClick={(e)=>setSearchBar(false)}>See all Employees</button>
+           <button className='btn-entries' onClick={(e)=>renderAllEmployees()}>See all Employees</button>
 
            <section className='showAndSearchContainer'>
                {renderShowEntries()}
@@ -383,4 +246,5 @@ const EmployeesList = ()=>{
     )
 }
 
-export default EmployeesList
+
+export default EmployeesList;

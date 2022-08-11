@@ -119,6 +119,7 @@ section{
     background-color: #5A6F07;
     border-radius:5px;
     border: 1px solid  #5A6F07;
+    cursor:pointer;
 }
 .select-input::placeholder{
   font-size:10px;
