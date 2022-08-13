@@ -11,9 +11,7 @@ import * as Yup from 'yup';
 
 const  EmployeesList = ()=>{
     const employees = useSelector((state)=>state.employees)
-    console.log(employees)
- 
-
+  
     const [currentTable, setCurrentTable] = useState(1)
     const [employessPerTable, setEmployeesPerTable] = useState(10)
     const indexOfLastEmployee = currentTable * employessPerTable;
@@ -26,7 +24,7 @@ const  EmployeesList = ()=>{
  
  
  if(!searchBar){
-   currentEmployees=employeesSorting.slice(indexOfFirstEmployee, indexOfLastEmployee)
+   currentEmployees=employeesSorting.slice(indexOfFirstEmployee, indexOfLastEmployee) 
  }else if(searchBar){
     currentEmployees=filterEmployees.slice(indexOfFirstEmployee, indexOfLastEmployee) 
  }

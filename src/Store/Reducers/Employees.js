@@ -8,8 +8,8 @@ export const employeesSlice = createSlice({
     initialState: DEFAULT_EMPLOYEES_LIST,
     reducers:{
         addEmployee: (state, action)=>{
-          
-               return [...state, action.payload]
+             console.log(state)
+               return [...state, action.payload].sort((a,b)=> a.firstName.toLowerCase() > b.firstName.toLowerCase() ? 1 : -1)
         }
     }
 })

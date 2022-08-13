@@ -1,3 +1,5 @@
+
+
 export let DEFAULT_EMPLOYEES_LIST = [
     {
         firstName:"Jolie", 
@@ -231,4 +233,4 @@ export let DEFAULT_EMPLOYEES_LIST = [
         dept:"human Resources"
     },
    
-]
+].sort((a,b)=> a.firstName.toLowerCase() > b.firstName.toLowerCase() ? 1 : -1)
