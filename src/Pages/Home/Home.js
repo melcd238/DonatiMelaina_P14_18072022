@@ -52,6 +52,7 @@ const Home = ()=>{
                 <Formik initialValues={{ firstName: '', lastName: '',birth:"", startDate:"",street:"",city:"",state:"Alabama",zipCode:"",dept:"sales"}}
                          validationSchema={validationSchema}
                          onSubmit={(values, { setSubmitting ,resetForm }) => {
+                              values['zipCode'] = values.zipCode.toString();
                               console.log(values)
                               dispatch(addEmployee(values))
                               setSubmitting(false)
