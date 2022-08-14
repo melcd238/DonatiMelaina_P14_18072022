@@ -14,7 +14,8 @@ React-redux.\
 Redux-Toolkit.\
 Redux-Persist.\
 Formik.\
-Yup.
+Yup.\
+simple-modal-component-library , my package npm for modal that you can find here: https://www.npmjs.com/package/simple-modal-component-library /
 
 
 ## Installation and launch this project: 
