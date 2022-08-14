@@ -73,9 +73,13 @@ legend{
     align-items: center;
     justify-content: center;
     box-shadow: 0 0px 10px -2px #1f2235;
+    cursor:pointer;
 }
 .btn-save:hover{
     color:#5A6F07;
     transition: all ease 1s;
     background-color: rgb(230, 227, 227);
+}
+.btn-save:active{
+    transform: scale(1.2);
 }

@@ -32,7 +32,13 @@ cursor:pointer;
 margin-top:10px;
 
 }
-.imgActive{
+.spanArrow img:hover{
+ border: 2px solid #93AC18;
+ padding:4px;
+ border-radius:50%; 
+}
+
+.spanArrow img:active{
 border: 1px solid #93AC18;
 background-color: #93AC18;
 padding:4px;
@@ -126,6 +132,9 @@ section{
     color:#5A6F07;
     transition: all ease 1s;
     background-color: rgb(230, 227, 227); 
+}
+.btn-entries:active{
+    transform: scale(1.2)
 }
 
 .select-input::placeholder{
