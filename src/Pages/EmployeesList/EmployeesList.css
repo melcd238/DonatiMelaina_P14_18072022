@@ -30,8 +30,9 @@ height:12px;
 margin:auto;
 cursor:pointer;
 margin-top:10px;
+
 }
-.spanArrow img:active{
+.imgActive{
 border: 1px solid #93AC18;
 background-color: #93AC18;
 padding:4px;

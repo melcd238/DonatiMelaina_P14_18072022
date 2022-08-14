@@ -37,11 +37,12 @@ const handelSort =( key, option)=>{
                 
                  const sortedEmployee = [...filterEmployees].sort((a,b)=> a[key].toLowerCase() > b[key].toLowerCase() ? 1 : -1);
                   setFilterEmployees(sortedEmployee);
-                
+                 
             } 
             else if(!searchBar){
              const sortedEmployee = [...employeesSorting].sort((a,b)=> a[key].toLowerCase() > b[key].toLowerCase() ? 1 : -1);
              setEmployeesSorting(sortedEmployee);
+          
         }
       
      }
@@ -89,8 +90,8 @@ const handelSort =( key, option)=>{
         let header = Object.keys(employees[0])
          return header.map((key, index)=>(
              <th key={index}>{key.toUpperCase()}
-             <span className='spanArrow'><img src={arrowUp} alt="arrowUp" id= {`Up${key}`} className={key} onClick={(e)=>handelSort(key,"ASC")}/>
-             <img src={arrowBack} alt="arrowBack"  id= {`Back${key}`} onClick={(e)=>handelSort(key, "DESC")}/></span></th>
+             <span className='spanArrow'><img src={arrowUp} alt="arrowUp"  onClick={(e)=>handelSort(key,"ASC")}/>
+             <img src={arrowBack} alt="arrowBack"   onClick={(e)=>handelSort(key, "DESC")}/></span></th>
          ))
     }
 
