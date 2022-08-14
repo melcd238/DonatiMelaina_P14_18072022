@@ -65,7 +65,7 @@ legend{
     padding: 5px;
     outline: none;
     color: rgb(230, 227, 227);
-    border: 2px solid #5A6F07;
+    border: 2px solid #93AC18;
     border-radius: 5px;
     background-color: #5A6F07;
     font-size: 20px;
@@ -81,5 +81,5 @@ legend{
     background-color: rgb(230, 227, 227);
 }
 .btn-save:active{
-    transform: scale(1.2);
+    transform: scale(-1.2);
 }

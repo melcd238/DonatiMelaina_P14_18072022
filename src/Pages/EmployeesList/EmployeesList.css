@@ -59,7 +59,7 @@ section{
     padding: 5px;
     outline: none;
     color: rgb(230, 227, 227);
-    border: 2px solid #5A6F07;
+    border: 2px solid #93AC18;
     border-radius: 5px;
     background-color: #5A6F07;
     font-size: 20px;
@@ -125,16 +125,17 @@ section{
     color: rgb(230, 227, 227);
     background-color: #5A6F07;
     border-radius:5px;
-    border: 1px solid  #5A6F07;
+    border: 2px solid  #93AC18;
     cursor:pointer;
-}
+    box-shadow: 0 0px 10px -2px #1f2235;
+}   
 .btn-entries:hover{
     color:#5A6F07;
     transition: all ease 1s;
     background-color: rgb(230, 227, 227); 
 }
 .btn-entries:active{
-    transform: scale(1.2)
+    transform: scale(-1.2);
 }
 
 .select-input::placeholder{
