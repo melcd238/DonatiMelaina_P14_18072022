@@ -195,6 +195,10 @@ section{
     }
     }
     @media (max-width: 600px){
+        table{
+            width:94%;
+            margin:auto;
+        }
         table thead {
             font-size:8px;
             }
