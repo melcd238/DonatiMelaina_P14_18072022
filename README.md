@@ -1,6 +1,8 @@
 # About this project :
 The goal is to redesign the HRNet application to reduce its technical debt with React.
-The old app uses jQuery on the front end, which leads to massive bugs and increased internal complaints.(old app link: https://github.com/OpenClassrooms-Student-Center/P12_Front-end).\
+The old app uses jQuery on the front end, which leads to massive bugs and increased internal complaints.(old app repository link: https://github.com/OpenClassrooms-Student-Center/P12_Front-end).\
+Odl app with jQuery link : https://old-version-hrnet.netlify.app/
+New app with react link : https://melcd238-hrnet.netlify.app/
 
 
 <img width="1001" alt="hrnet" src="https://user-images.githubusercontent.com/46504445/184104213-432a91d2-58a3-492a-82cc-d0eddbf2b890.png">
