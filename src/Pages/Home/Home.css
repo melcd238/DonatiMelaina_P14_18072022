@@ -81,5 +81,5 @@ legend{
     background-color: rgb(230, 227, 227);
 }
 .btn-save:active{
-    transform: scale(-1.2);
+    transform: scale(-0.5);
 }

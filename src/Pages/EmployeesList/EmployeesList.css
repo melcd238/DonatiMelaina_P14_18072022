@@ -135,7 +135,7 @@ section{
     background-color: rgb(230, 227, 227); 
 }
 .btn-entries:active{
-    transform: scale(-1.2);
+    transform: scale(-0.5);
 }
 
 .select-input::placeholder{
